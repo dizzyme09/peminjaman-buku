@@ -102,6 +102,11 @@
                 window.location="lihatAkun.php";
             });
         </script>
+                <script>
+            document.getElementById("btnPB").addEventListener("click", function show() {
+                window.location="pinjamBuku.php";
+            });
+        </script>
 
         <script src="boots/js/jquery.js"></script> 
         <script src="boots/js/popper.js"></script> 

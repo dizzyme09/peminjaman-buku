@@ -14,7 +14,7 @@ WHERE tb_buku.status_data = 'Aktif'";
 $buku = query($query);
 
 if( isset($_POST['search'])){
-    $buku = cari($_POST['keyword']);
+    $buku = cariBuku($_POST['keyword']);
 }
 ?>
 <!DOCTYPE html>
@@ -38,9 +38,11 @@ if( isset($_POST['search'])){
         <div id="article">
             <div id="head">
                 <div id="cariPegawai">
-                    <div id="cari"></div>
-                    <input id="search" type="search">
-                    <img id="imgSearch" src="../img/SearchIcon.png">
+                    <form>
+                        <div id="cari"></div>
+                        <input id="search" type="search" name="keyword">
+                        <input type="image" name="search" id="imgSearch" src="../img/SearchIcon.png">
+                    </form>
                 </div>
                 <div id="judulHead"></div>
                 <div id="exit"></div>
@@ -56,10 +58,10 @@ if( isset($_POST['search'])){
                 <div id="judulDaftar"></div>
                 <div id="tableBuku" style="overflow-x:auto;">
                     <table>
-                        <tr id="row0">
+                        <tr>
                             <th>No</th>
                             <th>Aksi</th>
-                            <th>Id Buku</th>
+                            <th>ID Buku</th>
                             <th>Judul Buku</th>
                             <th>Penulis</th>
                             <th>Genre</th>

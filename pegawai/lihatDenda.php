@@ -6,12 +6,8 @@ if(!isset($_SESSION['login'])){
 }
 require 'functionsPegawai.php';
 
-$id_member = (int)$_GET['id_member'];
-$query = "SELECT tb_peminjaman.id_member, tb_peminjam.nama, tb_buku.judul_buku, tb_peminjaman.status_peminjaman, tb_peminjaman.keterangan, tb_peminjaman.tgl_pinjam, tb_peminjaman.tgl_kembali FROM tb_peminjaman
-JOIN tb_buku on (tb_peminjaman.id_buku = tb_buku.id_buku)
-JOIN tb_peminjam on (tb_peminjaman.id_member = tb_peminjam.id_member)
-WHERE tb_peminjam.id_member = $id_member";
-$member = query($query);
+$query = "SELECT * FROM tb_denda";
+$denda = query($query);
 ?>
 
 <!DOCTYPE html>
@@ -50,25 +46,19 @@ $member = query($query);
                     <table>
                         <tr id="row0">
                             <th>No</th>
-                            <th>ID Member</th>
-                            <th>Nama</th>
-                            <th>Judul Buku</th>
-                            <th>Status Peminjaman</th>
-                            <th>Keterangan</th>
-                            <th>Tanggal Pinjam</th>
-                            <th>Tanggal Kembali</th>
+                            <th>ID Denda</th>
+                            <th>ID Peminjaman</th>
+                            <th>Tanggal Pembayaran</th>
+                            <th>Jumlah Denda</th>
                         </tr>
                         <?php $i= 1; ?>
-                        <?php foreach( $member as $row ) :?>
+                        <?php foreach( $denda as $row ) :?>
                         <tr>
                             <td><?= $i ?></td>
-                            <td><?php echo "MEM-", $row['id_member'] ?></td>
-                            <td><?php echo $row['nama']?></td>
-                            <td><?php echo $row['judul_buku']?></td>
-                            <td><?php echo $row['status_peminjaman']?></td>
-                            <td><?php echo $row['keterangan'] ?></td>
-                            <td><?php echo $row['tgl_pinjam'] ?></td>
-                            <td><?php echo $row['tgl_kembali'] ?></td>
+                            <td><?php echo "DND-", $row['id_denda'] ?></td>
+                            <td><?php echo "PNJ-", $row['id_peminjaman'] ?></td>
+                            <td><?php echo $row['tgl_pembayaran']?></td>
+                            <td><?php echo $row['jumlah']?></td>
                         </tr>
                         <?php $i++; ?>
                         <?php endforeach; ?>
@@ -90,13 +80,13 @@ $member = query($query);
         </script>
         <script type="text/babel">
             let judulHead = (
-                <p>LIHAT HISTORI PEMINJAM</p>
+                <p>LIHAT DENDA</p>
             );
             ReactDOM.render(judulHead, document.getElementById("judulHead"));
         </script>
         <script type="text/babel">
             let exit = (
-                <a href="pinjamBuku.php">
+                <a href="index.php">
                     <button className="exit">
                         Back
                     </button>
@@ -106,7 +96,7 @@ $member = query($query);
         </script>
         <script type="text/babel">
             let judulDaftar = (
-                <p>DAFTAR PEMINJAMAN</p>
+                <p>DAFTAR DENDA</p>
             );
             ReactDOM.render(judulDaftar, document.getElementById("judulDaftar"));
         </script>

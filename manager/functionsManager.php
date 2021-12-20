@@ -11,6 +11,14 @@ function query($query){
     return $rows;
 }
 
+function cariBuku($keyword){
+    $query = "SELECT * FROM tb_buku WHERE 
+    (judul_buku LIKE '%$keyword%'
+    OR id_buku LIKE '%$keyword%')
+    AND status_data = 'Aktif'";
+    return query($query);
+}
+
 function hapusBuku($id_buku){
     global $conn;
 
