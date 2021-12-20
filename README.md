@@ -2,7 +2,7 @@
 ### Instalasi Aplikasi yang Diperlukan
 * [XAMPP](https://www.apachefriends.org/download.html) (gua pake versi 7.4.26 / PHP 7.4.26)
 
-catatan: yang diperlukan pada XAMPP ini adalah MySQL dan Apache jika terjadi error saat menjalankan APACHE seperti port error [lihat disini](https://youtu.be/_cu7KM0NsUA) untuk cara penyelesaiannya
+catatan: yang diperlukan pada XAMPP ini adalah MySQL dan Apache jika terjadi error saat menjalankan Apache seperti port error [lihat disini](https://youtu.be/_cu7KM0NsUA) untuk cara penyelesaiannya
 
 ## Cara Kerja
 * Jalankan aplikasi XAMPP lalu hidupkan services MySQL dan Apache
@@ -13,4 +13,4 @@ catatan: yang diperlukan pada XAMPP ini adalah MySQL dan Apache jika terjadi err
 * Browse ke local directory kalian, cari folder xampp -> htdocs -> paste
 * Kembali ke browser dengan page `localhost/phpmyadmin` yang masih terbuka cari toolbars yang berjudul **import**
 * Ketika pada menu import diminta untuk upload file yaitu file sql yang ada di dalam folder zip ini
-* Jalankan aplikasinya dengan cara `localhost/nama-folder` **nama-folder** disini adalah nama folder yang dipaste ke dalam htdocs tadi yaitu project-buku
+* Jalankan aplikasinya dengan cara `localhost/nama-folder` **nama-folder** disini adalah nama folder yang dipaste ke dalam htdocs tadi yaitu **project-buku**
