@@ -1,17 +1,19 @@
 <?php
 session_start();
 if(!isset($_SESSION['login'])){
-    header('location:../index.php');
+    header('location:login.php');
     exit;
 }
-require 'functionsManager.php';
+require 'functionsPegawai.php';
 
-$pegawai = query("SELECT * FROM tb_pegawai WHERE status_data = 'Aktif'");
-
-if( isset($_POST['search'])){
-    $pegawai = cari($_POST['keyword']);
-}
+$id_member = (int)$_GET['id_member'];
+$query = "SELECT tb_peminjaman.id_member, tb_peminjam.nama, tb_buku.judul_buku, tb_peminjaman.status_peminjaman, tb_peminjaman.keterangan, tb_peminjaman.tgl_pinjam, tb_peminjaman.tgl_kembali FROM tb_peminjaman
+JOIN tb_buku on (tb_peminjaman.id_buku = tb_buku.id_buku)
+JOIN tb_peminjam on (tb_peminjaman.id_member = tb_peminjam.id_member)
+WHERE tb_peminjam.id_member = $id_member";
+$member = query($query);
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,7 +23,7 @@ if( isset($_POST['search'])){
         <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 
         <link rel="stylesheet" href="boots/css/bootstrap.css">
-        <link rel="stylesheet" href="content/lihatPegawai.css">
+        <link rel="stylesheet" href="content/lihatAkun.css">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
@@ -34,46 +36,39 @@ if( isset($_POST['search'])){
             <div id="head">
                 <div id="cariPegawai">
                     <div id="cari"></div>
-                    <input id="search" type="search">
-                    <img id="imgSearch" src="../img/SearchIcon.png">
+                    <form>
+                        <input id="search" type="search" name="keyword" autocomplete="off">
+                        <img id="imgSearch" src="../img/SearchIcon.png">
+                    </form>
                 </div>
                 <div id="judulHead"></div>
                 <div id="exit"></div>
             </div>
-            <div id="daftarPegawai">
+            <div id="daftarAkun">
                 <div id="judulDaftar"></div>
-                <div id="tablePegawai" style="overflow-x:auto;">
+                <div id="tableAkun" style="overflow-x:auto;">
                     <table>
                         <tr id="row0">
                             <th>No</th>
-                            <th>Aksi</th>
-                            <th>NIK</th>
-                            <th>ID Pegawai</th>
+                            <th>Id Member</th>
                             <th>Nama</th>
-                            <th>Jabatan</th>
-                            <th>Tempat Lahir</th>
-                            <th>Tanggal Lahir</th>
-                            <th>Nomor Telepon</th>
+                            <th>Judul Buku</th>
+                            <th>Status Peminjaman</th>
+                            <th>Keterangan</th>
+                            <th>Tanggal Pinjam</th>
+                            <th>Tanggal Kembali</th>
                         </tr>
                         <?php $i= 1; ?>
-                        <?php foreach( $pegawai as $row ) :?>
+                        <?php foreach( $member as $row ) :?>
                         <tr>
                             <td><?= $i ?></td>
-                            <td>
-                                <a href="#">
-                                    <button class="update">Update</button>
-                                </a></br>
-                                <a href="hapusPegawai.php?id_pegawai=<?= $row['id_pegawai']; ?>" onclick="return confirm('hapus data?')">
-                                    <button class="hapus">Hapus</button>
-                                </a>
-                            </td>
-                            <td><?php echo $row['NIK'] ?></td>
-                            <td><?php echo "PGW-", $row['id_pegawai'] ?></td>
+                            <td><?php echo "MEM-", $row['id_member'] ?></td>
                             <td><?php echo $row['nama']?></td>
-                            <td><?php echo $row['jabatan']?></td>
-                            <td><?php echo $row['tempat_lahir']?></td>
-                            <td><?php echo $row['tanggal_lahir']?></td>
-                            <td><?php echo $row['no_telp'] ?></td>
+                            <td><?php echo $row['judul_buku']?></td>
+                            <td><?php echo $row['status_peminjaman']?></td>
+                            <td><?php echo $row['keterangan'] ?></td>
+                            <td><?php echo $row['tgl_pinjam'] ?></td>
+                            <td><?php echo $row['tgl_kembali'] ?></td>
                         </tr>
                         <?php $i++; ?>
                         <?php endforeach; ?>
@@ -95,7 +90,7 @@ if( isset($_POST['search'])){
         </script>
         <script type="text/babel">
             let judulHead = (
-                <p>LIHAT PEGAWAI</p>
+                <p>LIHAT HISTORI PEMINJAM</p>
             );
             ReactDOM.render(judulHead, document.getElementById("judulHead"));
         </script>
@@ -111,7 +106,7 @@ if( isset($_POST['search'])){
         </script>
         <script type="text/babel">
             let judulDaftar = (
-                <p>DAFTAR PEGAWAI</p>
+                <p>DAFTAR PEMINJAMAN</p>
             );
             ReactDOM.render(judulDaftar, document.getElementById("judulDaftar"));
         </script>

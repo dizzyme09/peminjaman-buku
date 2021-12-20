@@ -65,7 +65,7 @@ if( isset($_POST['search'])){
                                 <a href="#">
                                     <button class="update">Update</button>
                                 </a></br>
-                                <a href="#">
+                                <a href="hapusAkun.php?id_member=<?= $row['id_member']; ?>" onclick="return confirm('hapus data?')";>
                                     <button class="hapus">Hapus</button>
                                 </a>
                             </td>

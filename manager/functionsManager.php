@@ -10,4 +10,22 @@ function query($query){
     }
     return $rows;
 }
+
+function hapusBuku($id_buku){
+    global $conn;
+
+    $query = "UPDATE tb_buku SET status_data = 'Tidak Aktif' WHERE id_buku=$id_buku";
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}
+
+function hapusPegawai($id_pegawai){
+    global $conn;
+
+    $query = "UPDATE tb_pegawai SET status_data = 'Tidak Aktif' WHERE id_pegawai=$id_pegawai";
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}
 ?>

@@ -9,7 +9,8 @@ require 'functionsManager.php';
 $query = "SELECT tb_buku.id_buku, tb_buku.judul_buku, tb_penulis.nama, tb_buku.genre, tb_penerbit.nama_penerbit as penerbit, tb_buku.tahun_terbit, tb_buku.jumlah, tb_buku.dibuat, tb_buku.diubah, tb_buku.dihapus, tb_buku.status_data from tb_buku
 join tb_kepengarangan on (tb_buku.id_buku = tb_kepengarangan.id_buku)
 join tb_penulis on (tb_penulis.id_penulis = tb_kepengarangan.id_penulis)
-join tb_penerbit on (tb_buku.id_penerbit = tb_penerbit.id_penerbit)";
+join tb_penerbit on (tb_buku.id_penerbit = tb_penerbit.id_penerbit)
+WHERE tb_buku.status_data = 'Aktif'";
 $buku = query($query);
 
 if( isset($_POST['search'])){
@@ -74,7 +75,7 @@ if( isset($_POST['search'])){
                                 <a href="#">
                                     <button class="update">Update</button>
                                 </a></br>
-                                <a href="#">
+                                <a href="hapusBuku.php?id_buku=<?= $row['id_buku']; ?>" onclick="return confirm('hapus data?')";>
                                     <button class="hapus">Hapus</button>
                                 </a>
                             </td>
