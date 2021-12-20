@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500&display=swap');
+@media screen and (max-width: 1024px) {
+    body,
+    main{
+        width: 100%;
+        max-width: 1024px;
+        height: 100%;
+        max-height: 100%;
+        padding: 0;
+    }
+}
+body {
+    width: 100%;
+    position: absolute;
+    display: block;
+    margin:0 auto;
+    left: 0px;
+    font-family: 'Montserrat Alternates', sans-serif;
+    margin-top: 40px;
+    background-color: #E5E5E5;
+}
+#article {
+    display: block;
+    position: absolute;
+    margin-top: -15px;
+    margin-left: 400px;
+    margin-right: 400px;
+    height: 400px;
+    width: 511px;
+    color: black;
+    background-color: #8FE2CE;
+}
+#header img{
+    width: 511px;
+    height: 170px;
+    object-fit: cover;
+    padding-left: 400px;
+}
+#login {
+    display: block;
+    background-color: #E5E5E5;
+    text-align: center;
+    height: 340px;
+    margin-top: 30px;
+    margin-left: 70px;
+    margin-right: 70px;
+}
+#txtLogin {
+    font-size: 30px;
+    font-weight: 500;
+}
+form {
+    padding-left: 80px;
+    padding-right: 80px;
+}
+#username{
+    margin-top: 50px;
+    border-radius: 100px;
+    font-size: 18px;
+}
+#password {
+    margin-top: 30px;
+    border-radius: 100px;
+    font-size: 18px;
+}
+.sign {
+    display: block;
+    margin-top: 80px;
+    margin-left: 85px;
+    background-color: #07AD85;
+    border-radius: 100px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: 500;
+    padding: 3px 60px 3px 60px;
+    cursor: pointer;
+}
+.sign:hover {
+    background-color: #047459;
+}
+#foot {
+    margin-top: -10px;
+    text-align: center;
+    font-size: 12px;
+    font-family: 'Roboto';
+}
