@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&display=swap');
+@media screen and (max-width: 1024px) {
+    body,
+    main{
+        width: 100%;
+        max-width: 1024px;
+        height: 100%;
+        max-height: 100%;
+        padding: 0;
+    }
+}
+body {
+    width: 100%;
+    position: absolute;
+    display: block;
+    margin:0 auto;
+    left: 0px;
+    font-family: 'Montserrat Alternates', sans-serif;
+    background-color: #8A8A8A;
+}
+#article {
+    display: block;
+    color: white;
+}
+#head {
+    display: block;
+    float: left;
+    width: 100%;
+}
+#cariPegawai {
+    display: block;
+    float: left;
+    width: 20%;
+    background-color: #8FE2CE;
+    margin-top: 10px;
+    margin-left: 30px;
+    color: black;
+    height: 30px;
+    width: 300px;
+}
+#cari {
+    display: block;
+    float: left;
+    width: 15%;
+    font-size: 16px;
+    padding-left: 5px;
+    margin-top: -13px;
+}
+#search {
+    display: block;
+    float: left;
+    margin-top: 3px;
+    width: 200px;
+}
+#btnSubmitAkun {
+    display: block;
+    float: left;
+    margin-top: 3px;
+    margin-left: 5px;
+}
+#judulHead {
+    display: block;
+    float: left;
+    width: 60%;
+    font-size: 20px;
+    font-weight: 800;
+    text-align: center;
+    margin-top: -10px;
+}
+.exit {
+    display: block;
+    float: left;
+    margin-top: 5px;
+    margin-left: 65px;
+    background-color: #FF4F4F;
+    border-radius: 100px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: 500;
+    padding: 3px 15px 3px 15px;
+    cursor: pointer;
+}
+.exit:hover {
+    background-color: #BD3A3A;
+}
+#filterBuku {
+    display: block;
+    float: left;
+    width: 90%;
+    margin-top: 10px;
+    margin-left: 30px;
+    color: black;
+    height: 40px;
+}
+#imgFilter {
+    display: block;
+    float: left;
+    width: 15px;
+    height: 15px;
+    object-fit: cover;
+    margin-top: 3px;
+}
+#filter {
+    display: block;
+    float: left;
+    width: 5%;
+    margin-top: -15px;
+    margin-left: 10px;
+    color: white;
+}
+#fiksi {
+    display: block;
+    float: left;
+}
+#nonFiksi {
+    display: block;
+    float: left;
+    margin-left: 10px;
+}
+#penerbit {
+    display: block;
+    float: left;
+    margin-left: 10px;
+}
+#daftarBuku {
+    display: block;
+    float: left;
+    margin-left: 30px;
+    background-color: #8FE2CE;
+    height: 500px;
+    width: 1220px;
+    color: black;
+}
+#judulDaftar {
+    margin-top: -10px;
+    margin-left: 10px;
+    font-size: 18px;
+    font-weight: 500;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+    background-color: white;
+}
+#row0 th {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 2px black solid;
+}
+tr td {
+    text-align: center;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 2px black solid;
+}
+.update {
+    display: block;
+    float: left;
+    margin-top: 5px;
+    margin-left: 10px;
+    background-color: #07AD85;
+    border-radius: 100px;
+    color: white;
+    font-size: 16px;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: 500;
+    padding: 3px 15px 3px 15px;
+    cursor: pointer;
+}
+.update:hover {
+    background-color: #047459;
+}
+.hapus {
+    display: block;
+    float: left;
+    margin-top: 5px;
+    margin-left: 10px;
+    background-color: #07AD85;
+    border-radius: 100px;
+    color: white;
+    font-size: 16px;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: 500;
+    padding: 3px 19px 3px 19px;
+    cursor: pointer;
+}
+.hapus:hover {
+    background-color: #047459;
+}

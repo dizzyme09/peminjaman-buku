@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+        <link rel="stylesheet" href="boots/css/bootstrap.css">
+        <link rel="stylesheet" href="lihatBuku.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    </head>
+    <body>
+        <div id="header">
+            
+        </div>
+        <div id="article">
+            <div id="head">
+                <div id="cariPegawai">
+                    <div id="cari"></div>
+                    <input id="search" type="search">
+                    <input id="btnSubmitAkun" type="submit" value="Cari">
+                </div>
+                <div id="judulHead"></div>
+                <div id="exit"></div>
+            </div>
+            <div id="filterBuku">
+                <form>
+                    <img id="imgFilter" src="img/filter.png">
+                    <div id="filter"></div>
+                    <input id="fiksi" type="button" value="Fiksi">
+                    <input id="nonFiksi" type="submit" value="Non Fiksi">
+                    <input id="penerbit" type="submit" value="Penerbit Terpopuler">
+                </form>
+            </div>
+            <div id="daftarBuku">
+                <div id="judulDaftar"></div>
+                <div id="tableBuku" style="overflow-x:auto;">
+                    <table>
+                        <tr id="row0">
+                            <th>No</th>
+                            <th>Aksi</th>
+                            <th>Id Buku</th>
+                            <th>Judul</th>
+                            <th id="jenis">Jenis</th>
+                            <th>Penulis</th>
+                            <th>Penerbit</th>
+                            <th>Tahun Terbit</th>
+                            <th>Jumlah</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <div id="update"></div></br>
+                                <div id="hapus"></div>
+                            </td>
+                            <td>BK-1</td>
+                            <td>Hujan</td>
+                            <td>Fiksi</td>
+                            <td>Tere Liye</td>
+                            <td>Gramedia</td>
+                            <td>2021</td>
+                            <td>100</td>
+                        </tr>
+                    </table>    
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+
+        </div>
+
+
+        <script type="text/babel">
+            let cari = (
+                <p>Cari :</p>
+            );
+            ReactDOM.render(cari, document.getElementById("cari"));
+        </script>
+        <script type="text/babel">
+            let judulHead = (
+                <p>LIHAT BUKU</p>
+            );
+            ReactDOM.render(judulHead, document.getElementById("judulHead"));
+        </script>
+        <script type="text/babel">
+            let exit = (
+                <a href="menuManager.html">
+                    <button className="exit">
+                        Back
+                    </button>
+                </a>
+            )
+            ReactDOM.render(exit,document.getElementById("exit"));
+        </script>
+        <script type="text/babel">
+            let filter = (
+                <p>Filter :</p>
+            );
+            ReactDOM.render(filter, document.getElementById("filter"));
+        </script>
+        <script type="text/babel">
+            let judulDaftar = (
+                <p>DAFTAR BUKU</p>
+            );
+            ReactDOM.render(judulDaftar, document.getElementById("judulDaftar"));
+        </script>
+        <script type="text/babel">
+            let update = (
+                <a>
+                    <button className="update">
+                        Update
+                    </button>
+                </a>
+            )
+            ReactDOM.render(update,document.getElementById("update"));
+        </script>
+        <script type="text/babel">
+            let hapus = (
+                <a>
+                    <button className="hapus">
+                        Delete
+                    </button>
+                </a>
+            )
+            ReactDOM.render(hapus,document.getElementById("hapus"));
+        </script>
+        
+
+        <script src="boots/js/jquery.js"></script> 
+        <script src="boots/js/popper.js"></script> 
+        <script src="boots/js/bootstrap.js"></script>
+    </body>
+</html>
