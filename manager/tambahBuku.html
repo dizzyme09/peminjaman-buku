@@ -50,6 +50,7 @@
                 </form>
                 <div id="btnTPenulis"></div>
                 <div id="btnTPenerbit"></div>
+                <center><div id="btnTKepengarangan"></div></center>
             </div>
         </div>
         <div id="footer">
@@ -117,6 +118,13 @@
                     </button>
                 </a>
             )
+            let TKepengarangan = (
+                <a href="tambahKepengarangan.html">
+                    <button className="TKepengarangan">
+                        Tambah Kepengarangan
+                    </button>
+                </a>
+            )
             let TPenerbit = (
                 <a href="tambahPenerbit.html">
                     <button className="TPenerbit">
@@ -125,6 +133,7 @@
                 </a>
             )
             ReactDOM.render(TPenulis,document.getElementById("btnTPenulis"));
+            ReactDOM.render(TKepengarangan,document.getElementById("btnTKepengarangan"));
             ReactDOM.render(TPenerbit,document.getElementById("btnTPenerbit"));
         </script>
         
