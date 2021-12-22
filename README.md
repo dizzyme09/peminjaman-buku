@@ -16,7 +16,7 @@ catatan: yang diperlukan pada XAMPP ini adalah MySQL dan Apache jika terjadi err
 * Buka browser kesayangan kalian, tulis `localhost` **Jika port Apache tidak error saat pertama kali instalasi**
 * Jika port Apache diganti maka tulis `localhost:[port-yang-diganti]` **contoh:** `localhost:8080` jika berhasil masuk ke menu phpMyAdmin
 * Pada repository ini buka menu **Code** lalu dropdown akan muncul pilih **Download ZIP** ini akan mendownload ke local storage kalian
-* Di dalam file zip tersebut ada beberapa code php dan css dan file sql, ekstrak zip tersebut dan copy foldernya
+* Di dalam file zip tersebut diantaranya ada file php, css dan sql, ekstrak zip tersebut dan copy foldernya
 * Browse ke local directory kalian, cari folder xampp -> htdocs -> paste
 * Kembali ke browser dengan page `localhost/phpmyadmin` yang masih terbuka cari toolbars yang berjudul **import**
 * Ketika pada menu import diminta untuk upload file yaitu file sql yang ada di dalam folder zip ini
