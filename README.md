@@ -1,6 +1,13 @@
+# Project Akhir Sistem Basis Data
+### Anggota Kelompok
+* Belvin Shandy Aurora (11200910000052)
+* Anindia Tri Cahyani (11200910000053)
+* Amir Acalapati Henry (11200910000055)
+***
+
 ## Cara Menggunakan Aplikasi yang Telah Dibuat
 ### Instalasi Aplikasi yang Diperlukan
-* [XAMPP](https://www.apachefriends.org/download.html) (gua pake versi 7.4.26 / PHP 7.4.26)
+* [XAMPP](https://www.apachefriends.org/download.html) (disini memakai versi 7.4.26 / PHP 7.4.26)
 
 catatan: yang diperlukan pada XAMPP ini adalah MySQL dan Apache jika terjadi error saat menjalankan Apache seperti port error [lihat disini](https://youtu.be/_cu7KM0NsUA) untuk cara penyelesaiannya
 
@@ -13,4 +20,4 @@ catatan: yang diperlukan pada XAMPP ini adalah MySQL dan Apache jika terjadi err
 * Browse ke local directory kalian, cari folder xampp -> htdocs -> paste
 * Kembali ke browser dengan page `localhost/phpmyadmin` yang masih terbuka cari toolbars yang berjudul **import**
 * Ketika pada menu import diminta untuk upload file yaitu file sql yang ada di dalam folder zip ini
-* Jalankan aplikasinya dengan cara `localhost/nama-folder` **nama-folder** disini adalah nama folder yang dipaste ke dalam htdocs tadi yaitu **project-buku**
+* Jalankan aplikasinya dengan cara `localhost/nama-folder` **nama-folder** disini adalah nama folder yang dipaste ke dalam htdocs tadi yaitu **peminjaman-buku**
