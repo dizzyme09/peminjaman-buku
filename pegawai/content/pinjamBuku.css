@@ -159,7 +159,11 @@ body {
     margin-top: 14px;
     width: 200px;
 }
-.pinjam {
+#formAkun select {
+    margin-top: 14px;
+    width: 208px;
+}
+#btnPinjam {
     display: block;
     float: left;
     margin-top: 20px;
@@ -173,7 +177,7 @@ body {
     padding: 3px 15px 3px 15px;
     cursor: pointer;
 }
-.pinjam:hover {
+#btnPinjam:hover {
     background-color: #047459;
 }
 .history {

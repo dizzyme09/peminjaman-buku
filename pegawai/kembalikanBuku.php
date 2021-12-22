@@ -6,11 +6,10 @@ if(!isset($_SESSION['login'])){
 }
 require 'functionsPegawai.php';
 
-$query = "SELECT * FROM tb_denda WHERE status_data='Aktif' ORDER BY id_denda ASC";
-$denda = query($query);
+$peminjaman = query("SELECT * FROM tb_peminjaman WHERE status_data = 'Aktif' AND status_peminjaman = 'Dipinjam' ORDER BY id_peminjaman ASC");
 
 if( isset($_POST['cari'])){
-    $denda = cariDenda($_POST['keyword']);
+    $peminjaman = cariPeminjaman($_POST['keyword']);
 }
 ?>
 <!DOCTYPE html>
@@ -22,7 +21,7 @@ if( isset($_POST['cari'])){
         <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 
         <link rel="stylesheet" href="boots/css/bootstrap.css">
-        <link rel="stylesheet" href="content/lihatDenda.css">
+        <link rel="stylesheet" href="content/kembalikanBuku.css">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
@@ -41,32 +40,42 @@ if( isset($_POST['cari'])){
                     </form>
                 </div>
                 <div id="judulHead"></div>
+                <div id="lihatDenda"></div>
                 <div id="exit"></div>
             </div>
-            <div id="daftarDenda">
+            <div id="daftarAkun">
                 <div id="judulDaftar"></div>
-                <div id="tableDenda" style="overflow-x:auto;">
+                <div id="tableAkun" style="overflow-x:auto;">
                     <table>
                         <tr id="row0">
                             <th>No</th>
-                            <th>ID Denda</th>
                             <th>ID Peminjaman</th>
-                            <th>Tanggal Pembayaran</th>
-                            <th>Jumlah Denda</th>
+                            <th>Id Member</th>
+                            <th>ID Buku</th>
+                            <th>ID Pegawai</th>
+                            <th>Tanggal Pinjam</th>
+                            <th>Aksi</th>
                         </tr>
                         <?php $i= 1; ?>
-                        <?php foreach( $denda as $row ) :?>
+                        <?php foreach( $peminjaman as $row ) :?>
                         <tr>
                             <td><?= $i ?></td>
-                            <td><?php echo "DND-", $row['id_denda'] ?></td>
                             <td><?php echo "PNJ-", $row['id_peminjaman'] ?></td>
-                            <td><?php echo $row['tgl_pembayaran']?></td>
-                            <td><?php echo $row['jumlah']?></td>
+                            <td><?php echo "MEM-", $row['id_member'] ?></td>
+                            <td><?php echo "BK-", $row['id_buku']?></td>
+                            <td><?php echo "PGW-", $row['id_pegawai']?></td>
+                            <td><?php echo $row['tgl_pinjam']?></td>
+                            <td>
+                                <a href="aksiKembalikanBuku.php?id_peminjaman=<?= $row['id_peminjaman'];?>">
+                                    <button class="kembalikanBuku">Kembalikan Buku</button>
+                                </a>
+                            </td>
                         </tr>
                         <?php $i++; ?>
                         <?php endforeach; ?>
-                    </table>   
+                    </table>    
                 </div>
+                
             </div>
         </div>
         <div id="footer">
@@ -82,13 +91,23 @@ if( isset($_POST['cari'])){
         </script>
         <script type="text/babel">
             let judulHead = (
-                <p>LIHAT DENDA</p>
+                <p>KEMBALIKAN BUKU</p>
             );
             ReactDOM.render(judulHead, document.getElementById("judulHead"));
         </script>
         <script type="text/babel">
+            let lihatDenda = (
+                <a href="lihatDenda.php">
+                    <button className="lihatDenda">
+                        Lihat Denda
+                    </button>
+                </a>
+            )
+            ReactDOM.render(lihatDenda,document.getElementById("lihatDenda"));
+        </script>
+        <script type="text/babel">
             let exit = (
-                <a href="kembalikanBuku.php">
+                <a href="index.php">
                     <button className="exit">
                         Back
                     </button>
@@ -98,11 +117,11 @@ if( isset($_POST['cari'])){
         </script>
         <script type="text/babel">
             let judulDaftar = (
-                <p>DAFTAR DENDA</p>
+                <p>TABEL PEMINJAMAN</p>
             );
             ReactDOM.render(judulDaftar, document.getElementById("judulDaftar"));
         </script>
-        
+
 
         <script src="boots/js/jquery.js"></script> 
         <script src="boots/js/popper.js"></script> 

@@ -6,10 +6,10 @@ if(!isset($_SESSION['login'])){
 }
 require 'functionsManager.php';
 
-$pegawai = query("SELECT * FROM tb_pegawai WHERE status_data = 'Aktif'");
+$pegawai = query("SELECT * FROM tb_pegawai WHERE status_data = 'Aktif' ORDER BY id_pegawai ASC");
 
-if( isset($_POST['search'])){
-    $pegawai = cari($_POST['keyword']);
+if( isset($_POST['cari'])){
+    $pegawai = cariPegawai($_POST['keyword']);
 }
 ?>
 <!DOCTYPE html>
@@ -33,9 +33,11 @@ if( isset($_POST['search'])){
         <div id="article">
             <div id="head">
                 <div id="cariPegawai">
-                    <div id="cari"></div>
-                    <input id="search" type="search">
-                    <img id="imgSearch" src="../img/SearchIcon.png">
+                    <form action="" method="POST">
+                        <div id="cari"></div>
+                        <input id="search" name="keyword" type="search" autocomplete="off">
+                        <input id="btnSubmitAkun" type="submit" name="cari" value="Cari">
+                    </form>
                 </div>
                 <div id="judulHead"></div>
                 <div id="exit"></div>
@@ -60,7 +62,7 @@ if( isset($_POST['search'])){
                         <tr>
                             <td><?= $i ?></td>
                             <td>
-                                <a href="#">
+                                <a href="updatePegawai.php?id_pegawai=<?= $row['id_pegawai'];?>">
                                     <button class="update">Update</button>
                                 </a></br>
                                 <a href="hapusPegawai.php?id_pegawai=<?= $row['id_pegawai']; ?>" onclick="return confirm('hapus data?')">

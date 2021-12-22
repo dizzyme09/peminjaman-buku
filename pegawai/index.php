@@ -1,3 +1,10 @@
+<?php 
+session_start();
+if(!isset($_SESSION['login'])){
+    header('location:../index.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -102,9 +109,19 @@
                 window.location="lihatAkun.php";
             });
         </script>
-                <script>
+        <script>
             document.getElementById("btnPB").addEventListener("click", function show() {
                 window.location="pinjamBuku.php";
+            });
+        </script>
+        <script>
+            document.getElementById("btnBA").addEventListener("click", function show() {
+                window.location="tambahMember.php";
+            });
+        </script>
+        <script>
+            document.getElementById("btnKB").addEventListener("click", function show() {
+                window.location="kembalikanBuku.php";
             });
         </script>
 

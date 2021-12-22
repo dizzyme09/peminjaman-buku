@@ -1,3 +1,10 @@
+<?php 
+session_start();
+if(!isset($_SESSION['login'])){
+    header('location:../index.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -89,6 +96,9 @@
             });
             document.getElementById("btnLB").addEventListener("click", function show() {
                 window.location="lihatBuku.php";
+            });
+            document.getElementById("btnTB").addEventListener("click", function show() {
+                window.location="tambahBuku.php";
             });
         </script>
 

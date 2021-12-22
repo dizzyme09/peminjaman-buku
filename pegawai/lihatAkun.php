@@ -1,15 +1,15 @@
 <?php
 session_start();
 if(!isset($_SESSION['login'])){
-    header('location:.../index.php');
+    header('location:../index.php');
     exit;
 }
 require 'functionsPegawai.php';
 
-$member = query("SELECT * FROM tb_peminjam WHERE status_data = 'Aktif'");
+$member = query("SELECT * FROM tb_peminjam WHERE status_data = 'Aktif' ORDER BY id_member ASC");
 
-if( isset($_POST['search'])){
-    $member = cari($_POST['keyword']);
+if( isset($_POST['cari'])){
+    $member = cariMember($_POST['keyword']);
 }
 ?>
 
@@ -33,11 +33,11 @@ if( isset($_POST['search'])){
         </div>
         <div id="article">
             <div id="head">
-                <div id="cariPegawai">
-                    <div id="cari"></div>
-                    <form>
+                <div id="cariAkun">
+                    <form action="" method="POST">
+                        <div id="cari"></div>
                         <input id="search" type="search" name="keyword" autocomplete="off">
-                        <img id="imgSearch" src="../img/SearchIcon.png">
+                        <input id="btnSubmitAkun" type="submit" name="cari" value="Cari">
                     </form>
                 </div>
                 <div id="judulHead"></div>
@@ -62,7 +62,7 @@ if( isset($_POST['search'])){
                         <tr>
                             <td><?= $i ?></td>
                             <td>
-                                <a href="#">
+                                <a href="updateMember.php?id_member=<?= $row['id_member'];?>">
                                     <button class="update">Update</button>
                                 </a></br>
                                 <a href="hapusAkun.php?id_member=<?= $row['id_member']; ?>" onclick="return confirm('hapus data?')";>

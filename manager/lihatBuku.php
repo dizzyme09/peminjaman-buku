@@ -10,10 +10,11 @@ $query = "SELECT tb_buku.id_buku, tb_buku.judul_buku, tb_penulis.nama, tb_buku.g
 join tb_kepengarangan on (tb_buku.id_buku = tb_kepengarangan.id_buku)
 join tb_penulis on (tb_penulis.id_penulis = tb_kepengarangan.id_penulis)
 join tb_penerbit on (tb_buku.id_penerbit = tb_penerbit.id_penerbit)
-WHERE tb_buku.status_data = 'Aktif'";
+WHERE tb_buku.status_data = 'Aktif'
+ORDER BY id_buku ASC";
 $buku = query($query);
 
-if( isset($_POST['search'])){
+if( isset($_POST['cari'])){
     $buku = cariBuku($_POST['keyword']);
 }
 ?>
@@ -38,22 +39,22 @@ if( isset($_POST['search'])){
         <div id="article">
             <div id="head">
                 <div id="cariPegawai">
-                    <form>
+                    <form action="" method="POST">
                         <div id="cari"></div>
-                        <input id="search" type="search" name="keyword">
-                        <input type="image" name="search" id="imgSearch" src="../img/SearchIcon.png">
+                        <input id="search" type="search" name="keyword" autocomplete="off">
+                        <input id="btnSubmitAkun" type="submit" name="cari" value="Cari">
                     </form>
                 </div>
                 <div id="judulHead"></div>
                 <div id="exit"></div>
             </div>
-            <div id="filterBuku">
-                <img id="imgFilter" src="../img/filter.png">
+            <!-- <div id="filterBuku">
+                <img id="imgFilter" src="img/filter.png">
                 <div id="filter"></div>
                 <div id="fiksi"></div>
                 <div id="nonFiksi"></div>
                 <div id="penerbit"></div>
-            </div>
+            </div> -->
             <div id="daftarBuku">
                 <div id="judulDaftar"></div>
                 <div id="tableBuku" style="overflow-x:auto;">
@@ -74,7 +75,7 @@ if( isset($_POST['search'])){
                         <tr>
                             <td><?= $i ?></td>
                             <td>
-                                <a href="#">
+                                <a href="updateBuku.php?id_buku=<?= $row['id_buku'];?>">
                                     <button class="update">Update</button>
                                 </a></br>
                                 <a href="hapusBuku.php?id_buku=<?= $row['id_buku']; ?>" onclick="return confirm('hapus data?')";>

@@ -1,12 +1,8 @@
 <?php
 session_start();
-if(isset($_SESSION['login'])){
-    header('location:index.php');
-    exit;
-}
 require 'functions.php';
 
-if(isset($_POST['login'])){
+if(isset($_POST['signIn'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
 
@@ -35,8 +31,6 @@ if(isset($_POST['login'])){
             exit;
         }
     }
-
-    $error = true;
 }
 ?>
 <!DOCTYPE html>
@@ -60,11 +54,10 @@ if(isset($_POST['login'])){
             <div id="login">
                 <div id="txtLogin"></div>
                 <form action="" method="POST">
-                    <input id="username" name="username" type="text" placeholder="Username" autocomplete="off" required>
-                    <input id="password" name="password" type="password" placeholder="Password" required>
-                    <button type="submit" name="login" class="sign">Sign In</button>
+                    <input id="username" type="text" name="username" placeholder="Username" autocomplete="off" required>
+                    <input id="password" type="password" name="password" placeholder="Password" required>
+                    <button id="btnSignIn" name="signIn" type="submit" value="Sign In">Sign In</button>
                 </form>
-                <div id="signIn"></div>
             </div>
             <div id="foot"></div>
         </div>
@@ -78,16 +71,6 @@ if(isset($_POST['login'])){
             );
             ReactDOM.render(login, document.getElementById("txtLogin"));
         </script>
-        <!-- <script type="text/babel">
-            let signIn = (
-                <a>
-                    <button className="sign">
-                        Sign In
-                    </button>
-                </a>
-            )
-            ReactDOM.render(signIn,document.getElementById("signIn"));
-        </script> -->
         <script type="text/babel">
             let cpr = (
                 <p style={{fontSize:"14px"}}>
@@ -96,31 +79,31 @@ if(isset($_POST['login'])){
             );
             ReactDOM.render(cpr, document.getElementById("foot"));
         </script>
-        <!-- <script>
+        <script>
             document.getElementById("signIn").addEventListener("click", function show() {
-                var username = document.getElementById("username").value;
-                var password = document.getElementById("password").value;
-                if (username == "Pegawai") {
-                    if (password == "13579") {
-                        window.location="menuPegawai.html";
-                    }
-                    else {
-                        window.alert("Harap masukkan username dan password yang sesuai");
-                    }
-                }
-                else if (username == "Manager") {
-                    if (password == "24680") {
-                        window.location="menuManager.html";
-                    }
-                    else {
-                        window.alert("Harap masukkan username dan password yang sesuai");
-                    }
-                }
-                else if(username != "Pegawai" || username != "Manager") {
-                    window.alert("Harap masukkan username dan password yang sesuai");
-                }
+                // var username = document.getElementById("username").value;
+                // var password = document.getElementById("password").value;
+                // if (username == "Pegawai") {
+                //     if (password == "13579") {
+                //         window.location="menuPegawai.html";
+                //     }
+                //     else {
+                //         window.alert("Harap masukkan username dan password yang sesuai");
+                //     }
+                // }
+                // else if (username == "Manager") {
+                //     if (password == "24680") {
+                //         window.location="menuManager.html";
+                //     }
+                //     else {
+                //         window.alert("Harap masukkan username dan password yang sesuai");
+                //     }
+                // }
+                // else if(username != "Pegawai" || username != "Manager") {
+                //     window.alert("Harap masukkan username dan password yang sesuai");
+                // }
             });
-        </script> -->
+        </script>
 
 
         <script src="boots/js/jquery.js"></script> 

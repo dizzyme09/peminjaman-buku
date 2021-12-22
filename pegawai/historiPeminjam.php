@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['login'])){
-    header('location:.../index.php');
+    header('location:../index.php');
     exit;
 }
 require 'functionsPegawai.php';
@@ -10,7 +10,8 @@ $id_member = (int)$_GET['id_member'];
 $query = "SELECT tb_peminjaman.id_member, tb_peminjam.nama, tb_buku.judul_buku, tb_peminjaman.status_peminjaman, tb_peminjaman.keterangan, tb_peminjaman.tgl_pinjam, tb_peminjaman.tgl_kembali FROM tb_peminjaman
 JOIN tb_buku on (tb_peminjaman.id_buku = tb_buku.id_buku)
 JOIN tb_peminjam on (tb_peminjaman.id_member = tb_peminjam.id_member)
-WHERE tb_peminjam.id_member = $id_member";
+WHERE tb_peminjam.id_member = $id_member
+ORDER BY id_peminjaman ASC";
 $member = query($query);
 ?>
 
@@ -23,7 +24,7 @@ $member = query($query);
         <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 
         <link rel="stylesheet" href="boots/css/bootstrap.css">
-        <link rel="stylesheet" href="content/lihatAkun.css">
+        <link rel="stylesheet" href="content/historiPeminjam.css">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
@@ -34,15 +35,8 @@ $member = query($query);
         </div>
         <div id="article">
             <div id="head">
-                <div id="cariPegawai">
-                    <div id="cari"></div>
-                    <form>
-                        <input id="search" type="search" name="keyword" autocomplete="off">
-                        <img id="imgSearch" src="../img/SearchIcon.png">
-                    </form>
-                </div>
-                <div id="judulHead"></div>
-                <div id="exit"></div>
+            <div id="judulHead"></div>
+            <div id="exit"></div>
             </div>
             <div id="daftarAkun">
                 <div id="judulDaftar"></div>

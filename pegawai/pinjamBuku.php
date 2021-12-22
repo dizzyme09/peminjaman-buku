@@ -1,13 +1,13 @@
 <?php
 session_start();
 if(!isset($_SESSION['login'])){
-    header('location:.../index.php');
+    header('location:../index.php');
     exit;
 }
 require 'functionsPegawai.php';
 
-$id_member = query("SELECT DISTINCT id_member FROM tb_peminjam ORDER BY id_member ASC");
-$id_buku = query("SELECT DISTINCT id_buku FROM tb_buku ORDER BY id_buku ASC");
+$id_member = query("SELECT DISTINCT id_member FROM tb_peminjam WHERE status_data='Aktif' ORDER BY id_member ASC");
+$id_buku = query("SELECT DISTINCT id_buku FROM tb_buku WHERE status_data='Aktif' AND jumlah > 0 ORDER BY id_buku ASC");
 
 $member = query("SELECT * FROM tb_peminjam WHERE status_data = 'Aktif'");
 
@@ -24,13 +24,22 @@ if( isset($_POST['cariAkun'])){
 elseif( isset($_POST['cariBuku'])){
     $buku = cariBuku($_POST['keywordBuku']);
 }
-elseif( isset($_POST['pinjam'])){
-    if(tambahPeminjaman($_POST) > 0){
-        echo "
-            <script>
-                alert('peminjaman berhasil dilakukan');
-                document.location.href = 'index.php';
-            </script>";
+elseif( isset($_POST['btnPinjam'])){
+    $tgl_skrg = date('Y-m-d');
+    if($tgl_skrg > $_POST['tgl_pinjam']){
+        if(tambahPeminjaman($_POST) > 0){
+            echo "
+                <script>
+                    alert('peminjaman berhasil dilakukan');
+                    document.location.href = 'index.php';
+                </script>";
+        }else{
+            echo "
+                <script>
+                    alert('peminjaman gagal');
+                    document.location.href = 'index.php';
+                </script>";
+        }
     }else{
         echo "
             <script>
@@ -63,7 +72,7 @@ elseif( isset($_POST['pinjam'])){
                 <div id="cariAkun">
                     <div id="judulCariAkun"></div>
                     <form action="" method="POST">
-                        <input id="searchAkun" type="search" name="keywordAkun">
+                        <input id="searchAkun" type="search" name="keywordAkun" autocomplete="off">
                         <input id="btnSubmitAkun" type="submit" value="Cari" name="cariAkun">
                     </form>
                 </div>
@@ -115,29 +124,28 @@ elseif( isset($_POST['pinjam'])){
                     </div>
                     <div id="txt">
                         <select name="id_member" id="txtIdMember" required>
-                        <option value="" selected disabled hidden>Pilih ID Member</option>
-                        <?php foreach($id_member as $pilihan): ?>
-                        <option value="<?= $pilihan['id_member']; ?>"><?php echo "MEM-", $pilihan['id_member']; ?></option>
-                        <?php endforeach ?>
+                            <option value="" selected disabled hidden>Pilih ID Member</option>
+                            <?php foreach($id_member as $pilihan): ?>
+                            <option value="<?= $pilihan['id_member']; ?>"><?php echo "MEM-", $pilihan['id_member']; ?></option>
+                            <?php endforeach ?>
                         </select>
                         <select name="id_buku" id="txtIdBuku" required>
-                        <option value="" selected disabled hidden>Pilih ID Buku</option>
-                        <?php foreach($id_buku as $pilihan): ?>
-                        <option value="<?= $pilihan['id_buku']; ?>"><?php echo "BK-", $pilihan['id_buku']; ?></option>
-                        <?php endforeach ?>
+                            <option value="" selected disabled hidden>Pilih ID Buku</option>
+                            <?php foreach($id_buku as $pilihan): ?>
+                            <option value="<?= $pilihan['id_buku']; ?>"><?php echo "BK-", $pilihan['id_buku']; ?></option>
+                            <?php endforeach ?>
                         </select>
                         <!-- <input id="txtIdMember" name="txtNama" type="text">
                         <input id="txtIdBuku" name="txtIdMember" type="text"> -->
                         <input id="tgl" type="date" name="tgl_pinjam" required>
                     </div>
-                    <button type="submit" class="pinjam" name="pinjam">Pinjam</button>
-                    <!-- <div id="pinjam"></div> -->
+                    <button id="btnPinjam" name="btnPinjam" type="submit" value="Pinjam Buku">Pinjam Buku</button>
                 </form>
             </div>
             <div id="cariBuku">
                 <div id="judulCariBuku"></div>
                 <form action="" method="POST">
-                    <input id="searchBuku" type="search" name="keywordBuku">
+                    <input id="searchBuku" type="search" name="keywordBuku" autocomplete="off">
                     <input id="btnSubmitBuku" type="submit" value="Cari" name="cariBuku">
                 </form>
             </div>
@@ -202,16 +210,6 @@ elseif( isset($_POST['pinjam'])){
                 </a>
             )
             ReactDOM.render(exit,document.getElementById("exit"));
-        </script>
-        <script type="text/babel">
-            let pinjam = (
-                <a>
-                    <button className="pinjam">
-                        Pinjam Buku
-                    </button>
-                </a>
-            )
-            ReactDOM.render(pinjam,document.getElementById("pinjam"));
         </script>
         <script type="text/babel">
             let judulDaftarAkun = (

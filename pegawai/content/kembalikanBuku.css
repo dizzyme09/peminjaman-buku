@@ -61,17 +61,34 @@ body {
 #judulHead {
     display: block;
     float: left;
-    width: 60%;
+    width: 50%;
     font-size: 20px;
     font-weight: 800;
     text-align: center;
     margin-top: -10px;
 }
+.lihatDenda {
+    display: block;
+    float: left;
+    margin-top: 5px;
+    margin-left: 20px;
+    background-color: #07AD85;
+    border-radius: 100px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: 500;
+    padding: 3px 15px 3px 15px;
+    cursor: pointer;
+}
+.lihatDenda:hover {
+    background-color: #047459;
+}
 .exit {
     display: block;
     float: left;
     margin-top: 5px;
-    margin-left: 65px;
+    margin-left: 10px;
     background-color: #FF4F4F;
     border-radius: 100px;
     color: white;
@@ -122,7 +139,7 @@ tr td {
     padding-right: 5px;
     border: 2px black solid;
 }
-.update {
+.kembalikanBuku {
     display: block;
     float: left;
     margin-top: 5px;
@@ -136,23 +153,6 @@ tr td {
     padding: 3px 15px 3px 15px;
     cursor: pointer;
 }
-.update:hover {
-    background-color: #047459;
-}
-.hapus {
-    display: block;
-    float: left;
-    margin-top: 5px;
-    margin-left: 10px;
-    background-color: #07AD85;
-    border-radius: 100px;
-    color: white;
-    font-size: 16px;
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: 500;
-    padding: 3px 19px 3px 19px;
-    cursor: pointer;
-}
-.hapus:hover {
+.kembalikanBuku:hover {
     background-color: #047459;
 }

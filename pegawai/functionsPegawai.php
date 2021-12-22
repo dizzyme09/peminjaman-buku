@@ -11,6 +11,45 @@ function query($query){
     return $rows;
 }
 
+function tambahMember($data){
+    global $conn;
+    $nama = htmlspecialchars($data['nama']);
+    $nik = htmlspecialchars($data['NIK']);
+    $jenis_kelamin = htmlspecialchars($data['jenis_kelamin']);
+    $tempat_lahir = htmlspecialchars($data['tempat_lahir']);
+    $tanggal_lahir = htmlspecialchars($data['tanggal_lahir']);
+    $no_telp = htmlspecialchars($data['no_telp']);
+    $alamat = htmlspecialchars($data['alamat']);
+
+    $query = "INSERT INTO tb_peminjam (NIK, nama, jenis_kelamin, tempat_lahir, tanggal_lahir, no_telp, alamat)
+    VALUES
+    ('$nik', '$nama', '$jenis_kelamin', '$tempat_lahir', '$tanggal_lahir', '$no_telp', '$alamat')";
+
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}
+
+function ubahMember($data){
+    global $conn;
+    $id_member = (int)$data['id_member'];
+    $nama = htmlspecialchars($data['nama']);
+    $nik = htmlspecialchars($data['NIK']);
+    $jenis_kelamin = htmlspecialchars($data['jenis_kelamin']);
+    $tempat_lahir = htmlspecialchars($data['tempat_lahir']);
+    $tanggal_lahir = htmlspecialchars($data['tanggal_lahir']);
+    $no_telp = htmlspecialchars($data['no_telp']);
+    $alamat = htmlspecialchars($data['alamat']);
+
+    $query = "UPDATE tb_peminjam SET NIK='$nik', nama='$nama', jenis_kelamin='$jenis_kelamin',
+                tempat_lahir='$tempat_lahir', tanggal_lahir='$tanggal_lahir', no_telp='$no_telp', alamat='$alamat' 
+                WHERE id_member=$id_member";
+
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}
+
 function hapusMember($id_member){
     global $conn;
 
@@ -39,6 +78,7 @@ function cariBuku($keyword){
     tb_penerbit.nama_penerbit LIKE '%$keyword%')AND tb_buku.status_data = 'Aktif'";
     return query($query);
 }
+
 function tambahPeminjaman($data){
     global $conn;
     $id_member = htmlspecialchars((int)$data['id_member']);
@@ -49,9 +89,25 @@ function tambahPeminjaman($data){
     (id_member, id_buku, id_pegawai, tgl_pinjam)
     VALUES
     ($id_member, $id_buku, '".$_SESSION["id_pegawai"]."', '$tgl_pinjam')";
-
+    
     mysqli_query($conn, $query);
 
+
     return mysqli_affected_rows($conn);
+}
+
+function cariPeminjaman($keyword){
+    $query = "SELECT * FROM tb_peminjaman WHERE 
+    tgl_pinjam LIKE '%$keyword%'
+    AND status_data = 'Aktif' AND status_peminjaman = 'Dipinjam'";
+    return query($query);
+}
+
+function cariDenda($keyword){
+    $query = "SELECT * FROM tb_denda WHERE 
+    (tgl_pembayaran LIKE '%$keyword%'
+    OR jumlah LIKE '%$keyword%')
+    AND status_data = 'Aktif'";
+    return query($query);
 }
 ?>

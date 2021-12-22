@@ -84,7 +84,7 @@ body {
 .exit:hover {
     background-color: #BD3A3A;
 }
-#daftarAkun {
+#daftarDenda {
     display: block;
     float: left;
     margin-left: 30px;
@@ -121,38 +121,4 @@ tr td {
     padding-left: 5px;
     padding-right: 5px;
     border: 2px black solid;
-}
-.update {
-    display: block;
-    float: left;
-    margin-top: 5px;
-    margin-left: 10px;
-    background-color: #07AD85;
-    border-radius: 100px;
-    color: white;
-    font-size: 16px;
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: 500;
-    padding: 3px 15px 3px 15px;
-    cursor: pointer;
-}
-.update:hover {
-    background-color: #047459;
-}
-.hapus {
-    display: block;
-    float: left;
-    margin-top: 5px;
-    margin-left: 10px;
-    background-color: #07AD85;
-    border-radius: 100px;
-    color: white;
-    font-size: 16px;
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: 500;
-    padding: 3px 19px 3px 19px;
-    cursor: pointer;
-}
-.hapus:hover {
-    background-color: #047459;
 }

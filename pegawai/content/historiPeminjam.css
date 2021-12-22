@@ -27,7 +27,7 @@ body {
     float: left;
     width: 100%;
 }
-#cariAkun {
+#cariPegawai {
     display: block;
     float: left;
     width: 20%;
@@ -52,11 +52,10 @@ body {
     margin-top: 3px;
     width: 200px;
 }
-#btnSubmitAkun {
+#imgSearch {
     display: block;
     float: left;
-    margin-top: 3px;
-    margin-left: 5px;
+    margin-top: -7px;
 }
 #judulHead {
     display: block;

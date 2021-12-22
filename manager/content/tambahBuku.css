@@ -16,52 +16,26 @@ body {
     margin:0 auto;
     left: 0px;
     font-family: 'Montserrat Alternates', sans-serif;
-    background-color: #8A8A8A;
+    background-color: #E5E5E5;
 }
 #article {
     display: block;
+    margin-top: 20px;
+    margin-left: 400px;
     color: white;
+    background-color: #8A8A8A;
+    height: 520px;
+    width: 500px;
 }
 #head {
     display: block;
     float: left;
     width: 100%;
 }
-#cariAkun {
-    display: block;
-    float: left;
-    width: 20%;
-    background-color: #8FE2CE;
-    margin-top: 10px;
-    margin-left: 30px;
-    color: black;
-    height: 30px;
-    width: 300px;
-}
-#cari {
-    display: block;
-    float: left;
-    width: 15%;
-    font-size: 16px;
-    padding-left: 5px;
-    margin-top: -13px;
-}
-#search {
-    display: block;
-    float: left;
-    margin-top: 3px;
-    width: 200px;
-}
-#btnSubmitAkun {
-    display: block;
-    float: left;
-    margin-top: 3px;
-    margin-left: 5px;
-}
 #judulHead {
     display: block;
     float: left;
-    width: 60%;
+    width: 40%;
     font-size: 20px;
     font-weight: 800;
     text-align: center;
@@ -70,8 +44,8 @@ body {
 .exit {
     display: block;
     float: left;
-    margin-top: 5px;
-    margin-left: 65px;
+    margin-top: 10px;
+    margin-left: 180px;
     background-color: #FF4F4F;
     border-radius: 100px;
     color: white;
@@ -84,49 +58,63 @@ body {
 .exit:hover {
     background-color: #BD3A3A;
 }
-#daftarAkun {
+#dataBuku {
     display: block;
     float: left;
     margin-left: 30px;
-    background-color: #8FE2CE;
-    height: 550px;
-    width: 1220px;
+    width: 87%;
+    height: 350px;
     color: black;
+    background-color: #8FE2CE;
 }
-#judulDaftar {
-    margin-top: -10px;
-    margin-left: 10px;
-    font-size: 18px;
-    font-weight: 500;
-}
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    border: 1px solid #ddd;
-    background-color: white;
-}
-#row0 th {
-    text-align: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
-    border: 2px black solid;
-}
-tr td {
-    text-align: center;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-left: 5px;
-    padding-right: 5px;
-    border: 2px black solid;
-}
-.update {
+#formBuku {
     display: block;
     float: left;
-    margin-top: 5px;
-    margin-left: 10px;
+    width: 100%;
+}
+#formBuku #lbl {
+    display: block;
+    float: left;
+    width: 35%;
+    font-size: 18px;
+    margin-left: 20px;
+    font-weight: 500;
+}
+#formBuku #txt {
+    display: block;
+    float: left;
+    width: 50%;
+}
+#formBuku input, #formBuku textarea {
+    margin-top: 14px;
+    width: 200px;
+    font-size: 18px;
+}
+#formBuku select {
+    margin-top: 14px;
+    width: 208px;
+}
+#btnSimpan {
+    display: block;
+    float: left;
+    margin-top: 20px;
+    margin-left: 130px;
+    background-color: #07AD85;
+    border-radius: 100px;
+    color: white;
+    font-size: 18px;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: 500;
+    padding: 3px 15px 3px 15px;
+    cursor: pointer;
+}
+#btnSimpan:hover {
+    background-color: #047459;
+}
+.TPenulis {
+    display: block;
+    float: left;
+    margin-top: 60px;
     background-color: #07AD85;
     border-radius: 100px;
     color: white;
@@ -136,23 +124,40 @@ tr td {
     padding: 3px 15px 3px 15px;
     cursor: pointer;
 }
-.update:hover {
+.TPenulis:hover {
     background-color: #047459;
 }
-.hapus {
+.TPenerbit {
     display: block;
     float: left;
-    margin-top: 5px;
-    margin-left: 10px;
+    margin-top: 60px;
+    margin-left: 89px;
     background-color: #07AD85;
     border-radius: 100px;
     color: white;
     font-size: 16px;
     font-family: 'Montserrat Alternates', sans-serif;
     font-weight: 500;
-    padding: 3px 19px 3px 19px;
+    padding: 3px 15px 3px 15px;
     cursor: pointer;
 }
-.hapus:hover {
+.TPenerbit:hover {
+    background-color: #047459;
+}
+.TKepengarangan {
+    display: block;
+    float: left;
+    margin-top: 15px;
+    margin-left: 100px;
+    background-color: #07AD85;
+    border-radius: 100px;
+    color: white;
+    font-size: 16px;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: 500;
+    padding: 3px 15px 3px 15px;
+    cursor: pointer;
+}
+.TKepengarangan:hover {
     background-color: #047459;
 }
