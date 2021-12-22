@@ -7,7 +7,7 @@
 
 ## Cara Menggunakan Aplikasi yang Telah Dibuat
 ### Instalasi Aplikasi yang Diperlukan
-* [XAMPP](https://www.apachefriends.org/download.html) (disini memakai versi 7.4.26 / PHP 7.4.26)
+* [XAMPP](https://www.apachefriends.org/download.html) (disini memakai versi 7.3.33 / PHP 7.3.33)
 
 catatan: yang diperlukan pada XAMPP ini adalah MySQL dan Apache jika terjadi error saat menjalankan Apache seperti port error [lihat disini](https://youtu.be/_cu7KM0NsUA) untuk cara penyelesaiannya
 
