@@ -17,7 +17,7 @@ catatan: yang diperlukan pada XAMPP ini adalah MySQL dan Apache jika terjadi err
 * Jika port Apache diganti maka tulis `localhost:[port-yang-diganti]` **contoh:** `localhost:8080` jika berhasil masuk ke menu phpMyAdmin
 * Pada repository ini buka menu **Code** lalu dropdown akan muncul pilih **Download ZIP** ini akan mendownload ke local storage kalian
 * Di dalam file zip tersebut diantaranya ada file php, css dan sql, ekstrak zip tersebut dan copy foldernya
-* Browse ke local directory kalian, cari folder xampp -> htdocs -> paste
+* Browse ke local directory kalian, cari folder xampp/htdocs lalu paste
 * Kembali ke browser dengan page `localhost/phpmyadmin` yang masih terbuka cari toolbars yang berjudul **import**
 * Ketika pada menu import diminta untuk upload file yaitu file sql yang ada di dalam folder zip ini
 * Jalankan aplikasinya dengan cara `localhost/nama-folder` **nama-folder** disini adalah nama folder yang dipaste ke dalam htdocs tadi yaitu **peminjaman-buku**
