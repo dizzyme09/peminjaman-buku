@@ -79,32 +79,6 @@ if(isset($_POST['signIn'])){
             );
             ReactDOM.render(cpr, document.getElementById("foot"));
         </script>
-        <script>
-            document.getElementById("signIn").addEventListener("click", function show() {
-                // var username = document.getElementById("username").value;
-                // var password = document.getElementById("password").value;
-                // if (username == "Pegawai") {
-                //     if (password == "13579") {
-                //         window.location="menuPegawai.html";
-                //     }
-                //     else {
-                //         window.alert("Harap masukkan username dan password yang sesuai");
-                //     }
-                // }
-                // else if (username == "Manager") {
-                //     if (password == "24680") {
-                //         window.location="menuManager.html";
-                //     }
-                //     else {
-                //         window.alert("Harap masukkan username dan password yang sesuai");
-                //     }
-                // }
-                // else if(username != "Pegawai" || username != "Manager") {
-                //     window.alert("Harap masukkan username dan password yang sesuai");
-                // }
-            });
-        </script>
-
 
         <script src="boots/js/jquery.js"></script> 
         <script src="boots/js/popper.js"></script> 
