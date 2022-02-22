@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="img/Rectangle 46(1).png" width=300>
+</p>
+
 # Project Akhir Sistem Basis Data
 ### Anggota Kelompok
 * Belvin Shandy Aurora (11200910000052)
